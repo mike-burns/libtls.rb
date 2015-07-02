@@ -20,5 +20,9 @@ module Raw
   attach_function :tls_write, [:pointer, :pointer, :size_t, :pointer], :int
   attach_function :tls_read, [:pointer, :pointer, :size_t, :pointer], :int
   attach_function :tls_error, [:pointer], :string
+  attach_function :tls_server, [], :pointer
+  attach_function :tls_config_set_key_file, [:pointer, :string], :int
+  attach_function :tls_config_set_cert_file, [:pointer, :string], :int
+  attach_function :tls_accept_socket, [:pointer, :pointer, :int], :int
 end
 end
