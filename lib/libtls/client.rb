@@ -3,7 +3,7 @@ require 'libtls/raw'
 
 module LibTLS
 class Client
-  def initialize(configure:)
+  def initialize(configure:, &block)
     LibTLS.init
 
     @config = Config.new(configure)
@@ -15,6 +15,14 @@ class Client
     if LibTLS::Raw::tls_configure(@raw_client, @config.as_raw) < 0
       raise "tls_configure: #{LibTLS::Raw.tls_error(@raw_client)}"
     end
+
+    if block
+      begin
+        block.call(self)
+      ensure
+        self.finish
+      end
+    end
   end
 
   def connect(hostname, port, &block)
@@ -25,11 +33,16 @@ class Client
         raise "tls_connect: #{LibTLS::Raw.tls_error(@raw_client)}"
       end
 
-      opened_client = OpenedClient.new(@raw_client, @config)
+      opened_client = OpenedClient.new(@raw_client)
       block.call(opened_client)
     ensure
       opened_client && opened_client.close
     end
+  end
+
+  def finish
+    @config.free
+    LibTLS::Raw.tls_free(@raw_client)
   end
 end
 
@@ -38,19 +51,14 @@ private
 class OpenedClient
   READ_LEN = 1024
 
-  def initialize(raw_client, config)
+  def initialize(raw_client)
     @raw_client = raw_client
-    @config = config
   end
 
   def close
     if LibTLS::Raw.tls_close(@raw_client) < 0
       raise "tls_close: #{LibTLS::Raw.tls_error(@raw_client)}"
     end
-
-    @config.free
-
-    LibTLS::Raw.tls_free(@raw_client)
   end
 
   def write(str)

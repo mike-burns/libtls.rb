@@ -3,15 +3,17 @@ require 'libtls'
 
 describe 'a libtls client' do
   it 'reads data via a TLS connection' do
-    client = LibTLS::Client.new(
-      configure: {
-        ciphers: "DES-CBC3-SHA",
-        protocols: LibTLS::PROTOCOL_ALL
-      })
+    config = {
+      ciphers: "DES-CBC3-SHA",
+      protocols: LibTLS::PROTOCOL_ALL
+    }
 
-    content = client.connect("mike-burns.com", 443) do |c|
-      c.write(http_get("mike-burns.com"))
-      c.read
+    content = nil
+    LibTLS::Client.new(configure: config) do |client|
+      content = client.connect("mike-burns.com", 443) do |c|
+        c.write(http_get("mike-burns.com"))
+        c.read
+      end
     end
 
     expect(content[0..14]).to eq "HTTP/1.1 200 OK"
