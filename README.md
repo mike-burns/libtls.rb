@@ -33,23 +33,23 @@ The raw functions are as follows; see `tls_init`(3) for more information on what
 they do:
 
 - `LibTLS::Raw.tls_init`
-- `LibTLS::Raw.tls_client`
-- `LibTLS::Raw.tls_close`
-- `LibTLS::Raw.tls_connect`
-- `LibTLS::Raw.tls_configure`
-- `LibTLS::Raw.tls_config_new`
-- `LibTLS::Raw.tls_config_set_ciphers`
-- `LibTLS::Raw.tls_config_set_protocols`
-- `LibTLS::Raw.tls_config_set_ca_file`
-- `LibTLS::Raw.tls_config_free`
-- `LibTLS::Raw.tls_free`
-- `LibTLS::Raw.tls_write`
-- `LibTLS::Raw.tls_read`
 - `LibTLS::Raw.tls_error`
-- `LibTLS::Raw.tls_server`
-- `LibTLS::Raw.tls_config_set_key_file`
+- `LibTLS::Raw.tls_config_new`
+- `LibTLS::Raw.tls_config_free`
+- `LibTLS::Raw.tls_config_set_ca_file`
 - `LibTLS::Raw.tls_config_set_cert_file`
+- `LibTLS::Raw.tls_config_set_ciphers`
+- `LibTLS::Raw.tls_config_set_key_file`
+- `LibTLS::Raw.tls_config_set_protocols`
+- `LibTLS::Raw.tls_client`
+- `LibTLS::Raw.tls_server`
+- `LibTLS::Raw.tls_configure`
+- `LibTLS::Raw.tls_close`
+- `LibTLS::Raw.tls_free`
+- `LibTLS::Raw.tls_connect`
 - `LibTLS::Raw.tls_accept_socket`
+- `LibTLS::Raw.tls_read`
+- `LibTLS::Raw.tls_write`
 
 Of particular note are those functions which take a pointer (`tls_read`,
 `tls_write`, and `tls_accept_socket`). These must have an instance of
