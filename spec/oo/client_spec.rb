@@ -1,11 +1,12 @@
 require 'rspec'
 require 'libtls'
+require 'support/fixtures'
 
 describe 'a libtls client' do
   it 'reads data via a TLS connection' do
     config = {
-      ciphers: "DES-CBC3-SHA",
-      protocols: LibTLS::Raw::TLS_PROTOCOLS_ALL
+      protocols: LibTLS::Raw::TLS_PROTOCOL_TLSv1_2,
+      ca_file: fixture_filename('mike-burns.pem')
     }
 
     content = nil

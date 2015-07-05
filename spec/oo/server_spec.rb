@@ -1,6 +1,7 @@
 require 'rspec'
 require 'socket'
 require 'libtls'
+require 'support/fixtures'
 
 describe 'a libtls server' do
   before :each do
@@ -38,7 +39,7 @@ describe 'a libtls server' do
   private
 
   let(:hostname) { "localhost" }
-  let(:port) { "3335" }
+  let(:port) { "3334" }
   let(:key_file) { fixture_filename("thekey.key") }
   let(:cert_file) { fixture_filename("thecert.crt") }
   let(:ca_file) { fixture_filename("theca.pem") }
@@ -73,10 +74,5 @@ describe 'a libtls server' do
     sock.listen(1)
 
     sock
-  end
-
-  def fixture_filename(fn)
-    spec_path = File.expand_path('../../', __FILE__)
-    File.join(spec_path, 'fixtures', fn)
   end
 end
