@@ -66,11 +66,8 @@ describe 'a libtls server' do
   end
 
   def create_socket_for_client(hostname, port)
-    sock = Socket.new(Socket::Constants::AF_INET,
-                      Socket::Constants::SOCK_STREAM,
-                      0)
-    sin = Socket.pack_sockaddr_in(port, hostname)
-    sock.bind(sin)
+    sin = Addrinfo.tcp(hostname, port)
+    sock = sin.bind()
     sock.listen(1)
 
     sock
