@@ -38,23 +38,41 @@ they do:
 - `LibTLS::Raw.tls_error`
 - `LibTLS::Raw.tls_config_new`
 - `LibTLS::Raw.tls_config_free`
+- `LibTLS::Raw.tls_config_parse_protocols`
 - `LibTLS::Raw.tls_config_set_ca_file`
+- `LibTLS::Raw.tls_config_set_ca_path`
+- `LibTLS::Raw.tls_config_set_ca_mem`
 - `LibTLS::Raw.tls_config_set_cert_file`
+- `LibTLS::Raw.tls_config_set_cert_mem`
 - `LibTLS::Raw.tls_config_set_ciphers`
+- `LibTLS::Raw.tls_config_set_dheparams`
+- `LibTLS::Raw.tls_config_set_ecdhecurve`
 - `LibTLS::Raw.tls_config_set_key_file`
+- `LibTLS::Raw.tls_config_set_key_mem`
 - `LibTLS::Raw.tls_config_set_protocols`
+- `LibTLS::Raw.tls_config_set_verify_depth`
+- `LibTLS::Raw.tls_config_clear_keys`
+- `LibTLS::Raw.tls_config_insecure_noverifycert`
+- `LibTLS::Raw.tls_config_insecure_noverifyname`
+- `LibTLS::Raw.tls_config_verify`
+- `LibTLS::Raw.tls_load_file`
 - `LibTLS::Raw.tls_client`
 - `LibTLS::Raw.tls_server`
 - `LibTLS::Raw.tls_configure`
+- `LibTLS::Raw.tls_reset`
 - `LibTLS::Raw.tls_close`
 - `LibTLS::Raw.tls_free`
 - `LibTLS::Raw.tls_connect`
+- `LibTLS::Raw.tls_connect_fds`
+- `LibTLS::Raw.tls_connect_servername`
+- `LibTLS::Raw.tls_connect_socket`
+- `LibTLS::Raw.tls_accept_fds`
 - `LibTLS::Raw.tls_accept_socket`
 - `LibTLS::Raw.tls_read`
 - `LibTLS::Raw.tls_write`
 
 Of particular note are those functions which take a pointer (`tls_read`,
-`tls_write`, and `tls_accept_socket`). These must have an instance of
+`tls_write`, `tls_accept_socket`, and others). These must have an instance of
 `FFI::MemoryPointer` passed to them:
 
 ```ruby
