@@ -210,17 +210,48 @@ error string from libtls.
 
 ## Contributing
 
+As contributors and maintainers of this project, we will respect all people
+who contribute in any fashion. We are committed to making participation in this
+project a harassment-free experience for everyone, regardless of who they are.
+
+The project maintainers have the right and responsibility to remove, edit, or
+reject comments, commits, code, wiki edits, issues, and other contributions
+that are not aligned to this code of conduct. Project maintainers who do not
+follow the code of conduct may be removed from the project team.
+
+Instances of unacceptable behavior may be reported by [opening an
+issue][issues] or contacting [Mike Burns](mailto:mike@mike-burns.com)
+([PGP key][Mike PGP key]).
+
+[issues]: https://github.com/mike-burns/libtls.rb/issues
+[Mike PGP key]: http://pgp.mit.edu/pks/lookup?op=get&search=0x3E6761F72846B014
+
+### To contribute a feature
+
 1. Fork it ( https://github.com/mike-burns/libtls.rb/fork )
 2. Make sure the tests pass (`rake`)
 3. Create your feature branch (`git checkout -b my-new-feature`)
 4. Commit your changes (`git commit -am 'Add some feature'`)
 5. Push to the branch (`git push origin my-new-feature`)
 6. Make sure the tests pass (`rake`)
-7. Create a new Pull Request
+7. Make sure documentation is complete (`yard`)
+8. Create a new Pull Request
+
+*Feature requests without patches will be closed*.
+
+### To report a security issue
+
+If the issue should be kept quiet for security reasons, email
+[Mike Burns](mailto:mike@mike-burns.com) directly. His PGP key id is
+[0x2846b014][Mike PGP key], fingerprint:
+
+    5FD8 2CE6 A646 3285 538F
+    C3A5 3E67 61F7 2846 B014
 
 ## Credits
 
-libtls for Ruby is by [Mike Burns].
+libtls for Ruby is by [Mike Burns]. It is released under the
+[ISC license][LICENSE].
 
 It would have been impossible to make this library so quickly without the
 knowledge gained on [erltls] with [Rebecca Meritz].
@@ -230,10 +261,11 @@ GNU help was provided by [Matt Horan].
 The [ffi] gem has also proven crucial to this project; thanks to
 [Wayne Meissner, et al.][ffi credits], for their amazing work on that.
 
+The code of conduct is adapted from the [Contributor Covenant],
+[version 1.1.0][coc110].
+
 [Donate to the OpenBSD Foundation][donate]. Without them, none of this would
 exist.
-
-Released under the [ISC license][LICENSE].
 
 [Mike Burns]: https://mike-burns.com
 [Rebecca Meritz]: http://rebecca.meritz.com/
@@ -243,3 +275,5 @@ Released under the [ISC license][LICENSE].
 [ffi]: https://github.com/ffi/ffi/wiki
 [ffi credits]: https://github.com/ffi/ffi/#credits
 [erltls]: https://github.com/meritz-burns/erltls
+[Contributor Covenant]: http://contributor-covenant.org
+[coc110]: http://contributor-covenant.org/version/1/1/0/
