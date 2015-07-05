@@ -9,8 +9,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Mike Burns"]
   spec.email         = ["mike@mike-burns.com"]
   spec.summary       = %q{Bindings for libtls (libressl)}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.description   = %q{
+This is a set of libtls bindings for Ruby, plus a nice object-oriented layer
+atop the bindings.  
+  }
+  spec.homepage      = "https://github.com/mike-burns/libtls.rb"
   spec.license       = "ISC"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -18,10 +21,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "ffi", "~> 1.2.0"
+  spec.add_dependency "ffi", "~> 1.2"
   spec.requirements << 'libtls'
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec", "~> 2"
 end
