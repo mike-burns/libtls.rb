@@ -29,6 +29,11 @@ Or install it yourself as:
 This library provides the API on two levels: the raw C functions, and a nice
 object-oriented layer atop it.
 
+Below you will find an introduction, but a more in-depth reference can be found
+on [Rubydoc][].
+
+[Rubydoc]: http://www.rubydoc.info/gems/libtls
+
 ### Raw
 
 The raw functions are as follows; see `tls_init`(3) for more information on what
