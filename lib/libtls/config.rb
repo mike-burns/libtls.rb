@@ -30,6 +30,34 @@ class Config
   # @param [Hash] config_hash the Ruby representation of the configuration. The
   #   keys are any of {VALID_SET_CONFIGS}; the value is either a scalar value,
   #   or an array. The array is splatted into the appropriate C function.
+  #
+  # @option config_hash [String] ca_file The filename used to load a file containing
+  #   the root certificates. (_Client_)
+  # @option config_hash [String] ca_path The path (directory) which should be
+  #   searched for root certificates. (_Client_)
+  # @option config_hash [[FFI::Pointer, Fixnum]] ca_mem Set the root certificates
+  #   directly from memory. (_Client_)
+  # @option config_hash [String] cert_file Set file from which the public
+  #   certificate will be read. (_Client_ _and_ _server_)
+  # @option config_hash [[FFI::Pointer, Fixnum]] Set the public certificate
+  #   directly from memory. (_Client_ _and_ _server_)
+  # @option config_hash [String] ciphers Set the list of ciphers that may be
+  #   used. (_Client_ _and_ _server_)
+  # @option config_hash [String] dheparams Set the dheparams option to either
+  #   "none" (0), "auto" (-1), or "legacy" (1024). The default is "none".
+  #   (_Server_)
+  # @option config_hash [String] ecdhecurve Set the ecdhecurve option to one of
+  #   "none" (+NID_undef+), "auto" (-1), or any NID value understood by
+  #   OBJ_txt2nid (3).  (_Server_)
+  # @option config_hash [String] keyfile Set the file from which the private
+  #   key will be read. (_Server_)
+  # @option config_hash [[FFI::Pointer, Fixnum]] key_mem Directly set the
+  #   private key from memory. (_Server_)
+  # @option config_hash [Fixnum] protocols Sets which versions of the protocol
+  #   may be used, as documented in {LibTLS::Raw#tls_config_set_protocols}.
+  #   (_Client_ _and_ _server_)
+  # @option config_hash [Fixnum] verify_depth Set the verify depth as
+  #   documented under SSL_CTX_set_verify_depth(3). (_Client_)
   def initialize(config_hash)
     @config_hash = config_hash
   end
