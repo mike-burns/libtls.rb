@@ -225,11 +225,13 @@ that are not aligned to this code of conduct. Project maintainers who do not
 follow the code of conduct may be removed from the project team.
 
 Instances of unacceptable behavior may be reported by [opening an
-issue][issues] or contacting [Mike Burns](mailto:mike@mike-burns.com)
-([PGP key][Mike PGP key]).
+issue][issues], contacting [Mike Burns](mailto:mike@mike-burns.com)
+([PGP key][Mike PGP key]), or emailing the backup conduct contact:
+[Melissa Xie](mailto:me@melissaxie.com) ([PGP key][Melissa PGP key]).
 
 [issues]: https://github.com/mike-burns/libtls.rb/issues
 [Mike PGP key]: http://pgp.mit.edu/pks/lookup?op=get&search=0x3E6761F72846B014
+[Melissa PGP key]: http://pgp.mit.edu/pks/lookup?op=get&search=0x6A4FB2581C84204F
 
 ### To contribute a feature
 
