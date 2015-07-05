@@ -84,6 +84,19 @@ descriptor requirement:
   cctx = cctx_ptr.read_pointer
 ```
 
+Constants from `tls.h` are manually re-exposed under the `LibTLS::Raw`
+namespace:
+
+- `LibTLS::Raw::TLS_API`
+- `LibTLS::Raw::TLS_PROTOCOL_TLSv1_0`
+- `LibTLS::Raw::TLS_PROTOCOL_TLSv1_1`
+- `LibTLS::Raw::TLS_PROTOCOL_TLSv1_2`
+- `LibTLS::Raw::TLS_PROTOCOL_TLSv1`
+- `LibTLS::Raw::TLS_PROTOCOLS_ALL`
+- `LibTLS::Raw::TLS_PROTOCOLS_DEFAULT`
+- `LibTLS::Raw::TLS_READ_AGAIN`
+- `LibTLS::Raw::TLS_WRITE_AGAIN`
+
 ### OO
 
 An object-oriented wrapper is provided. Here is an example of a client:
@@ -100,7 +113,7 @@ def get(hostname, path)
   # FFI::MemoryPointer and the length of that pointer.
   config = {
     ciphers: "DES-CBC3-SHA",
-    protocols: LibTLS::PROTOCOL_ALL
+    protocols: LibTLS::Raw::TLS_PROTOCOLS_ALL
   }
 
   # Create a new libtls client. The block is then immediately run, and then the

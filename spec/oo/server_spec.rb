@@ -47,7 +47,7 @@ describe 'a libtls server' do
   def echo_client(str)
     content = ""
     config = {
-      protocols: LibTLS::PROTOCOL_ALL,
+      protocols: LibTLS::Raw::TLS_PROTOCOLS_ALL,
       ca_file: ca_file
     }
 

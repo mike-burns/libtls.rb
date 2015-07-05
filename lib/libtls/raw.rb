@@ -6,6 +6,20 @@ module Raw
 
   ffi_lib "libtls.so"
 
+  TLS_API = 20141031
+
+  TLS_PROTOCOL_TLSv1_0 = (1 << 1)
+  TLS_PROTOCOL_TLSv1_1 = (1 << 2)
+  TLS_PROTOCOL_TLSv1_2 = (1 << 3)
+  TLS_PROTOCOL_TLSv1 = \
+    TLS_PROTOCOL_TLSv1_0 | TLS_PROTOCOL_TLSv1_1 | TLS_PROTOCOL_TLSv1_2
+
+  TLS_PROTOCOLS_ALL = TLS_PROTOCOL_TLSv1
+  TLS_PROTOCOLS_DEFAULT = TLS_PROTOCOL_TLSv1_2
+
+  TLS_READ_AGAIN = -2
+  TLS_WRITE_AGAIN = -3
+
   attach_function :tls_init, [], :int
   attach_function :tls_error, [:pointer], :string
   attach_function :tls_config_new, [], :pointer

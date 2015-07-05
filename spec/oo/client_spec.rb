@@ -5,7 +5,7 @@ describe 'a libtls client' do
   it 'reads data via a TLS connection' do
     config = {
       ciphers: "DES-CBC3-SHA",
-      protocols: LibTLS::PROTOCOL_ALL
+      protocols: LibTLS::Raw::TLS_PROTOCOLS_ALL
     }
 
     content = nil

@@ -53,7 +53,7 @@ class Server
     ret = LibTLS::Raw.tls_accept_socket(
       ctx, cctx_ptr, client_sock.fileno)
 
-    if [LibTLS::READ_AGAIN, LibTLS::WRITE_AGAIN].include?(ret)
+    if [LibTLS::Raw::TLS_READ_AGAIN, LibTLS::Raw::TLS_WRITE_AGAIN].include?(ret)
       tls_accept(cctx_ptr, client_sock)
     else
       ret
