@@ -1,14 +1,17 @@
 # libtls for Ruby
 
-This is a set of libtls bindings for Ruby, plus a nice OO layer atop the
-bindings.
+This is a set of libtls bindings for Ruby, plus a nice object-oriented layer
+atop the bindings.
 
 This is a work in progress. If you figure out how to use this, please
 contribute back with documentation, bindings, and bug fixes.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+This gem depends on the libtls library. Make sure you either run OpenBSD or
+have [libressl-portable] installed.
+
+Once libtls itself is installed, add this line to your application's Gemfile:
 
 ```ruby
 gem 'libtls'
@@ -22,10 +25,12 @@ Or install it yourself as:
 
     $ gem install libtls
 
+[libressl-portable]: http://www.libressl.org/releases.html
+
 ## Usage
 
-This library provides the API on two levels: the raw C functions, and a nice OO
-layer atop it.
+This library provides the API on two levels: the raw C functions, and a nice
+object-oriented layer atop it.
 
 ### Raw
 
@@ -97,7 +102,7 @@ namespace:
 - `LibTLS::Raw::TLS_READ_AGAIN`
 - `LibTLS::Raw::TLS_WRITE_AGAIN`
 
-### OO
+### Object-Oriented Wrapper
 
 An object-oriented wrapper is provided. Here is an example of a client:
 
