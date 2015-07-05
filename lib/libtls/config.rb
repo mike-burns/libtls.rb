@@ -39,8 +39,8 @@ class Config
   #   directly from memory. (_Client_)
   # @option config_hash [String] cert_file Set file from which the public
   #   certificate will be read. (_Client_ _and_ _server_)
-  # @option config_hash [[FFI::Pointer, Fixnum]] Set the public certificate
-  #   directly from memory. (_Client_ _and_ _server_)
+  # @option config_hash [[FFI::Pointer, Fixnum]] cert_mem Set the public
+  #   certificate directly from memory. (_Client_ _and_ _server_)
   # @option config_hash [String] ciphers Set the list of ciphers that may be
   #   used. (_Client_ _and_ _server_)
   # @option config_hash [String] dheparams Set the dheparams option to either
