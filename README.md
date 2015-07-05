@@ -198,12 +198,28 @@ error string from libtls.
 6. Make sure the tests pass (`rake`)
 7. Create a new Pull Request
 
-## Authors
+## Credits
 
-* [Mike Burns](https://mike-burns.com)
+libtls for Ruby is by [Mike Burns].
 
-[Donate to the OpenBSD Foundation](http://www.openbsdfoundation.org/donations.html).
+It would have been impossible to make this library so quickly without the
+knowledge gained on [erltls] with [Rebecca Meritz].
+
+GNU help was provided by [Matt Horan].
+
+The [ffi] gem has also proven crucial to this project; thanks to
+[Wayne Meissner, et al.][ffi credits], for their amazing work on that.
+
+[Donate to the OpenBSD Foundation][donate]. Without them, none of this would
+exist.
 
 Released under the [ISC license][LICENSE].
 
+[Mike Burns]: https://mike-burns.com
+[Rebecca Meritz]: http://rebecca.meritz.com/
+[Matt Horan]: https://matthoran.com/
 [LICENSE]: LICENSE
+[donate]: http://www.openbsdfoundation.org/donations.html
+[ffi]: https://github.com/ffi/ffi/wiki
+[ffi credits]: https://github.com/ffi/ffi/#credits
+[erltls]: https://github.com/meritz-burns/erltls
