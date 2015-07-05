@@ -167,6 +167,9 @@ def echo_server(socket)
 end
 ```
 
+The underlying `struct tls *` object is exposed through the `#ctx` method; it
+can be passed to any `LibTLS::Raw` method, for example.
+
 ## Contributing
 
 1. Fork it ( https://github.com/mike-burns/libtls.rb/fork )
