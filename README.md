@@ -3,9 +3,6 @@
 This is a set of libtls bindings for Ruby, plus a nice object-oriented layer
 atop the bindings.
 
-This is a work in progress. If you figure out how to use this, please
-contribute back with documentation, bindings, and bug fixes.
-
 ## Installation
 
 This gem depends on the libtls library. Make sure you either run OpenBSD or

@@ -1,0 +1,3 @@
+--exclude spec
+--hide-void-return
+--files LICENSE

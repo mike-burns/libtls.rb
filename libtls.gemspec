@@ -5,7 +5,7 @@ require 'libtls/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "libtls"
-  spec.version       = Libtls::VERSION
+  spec.version       = LibTLS::VERSION
   spec.authors       = ["Mike Burns"]
   spec.email         = ["mike@mike-burns.com"]
   spec.summary       = %q{Bindings for libtls (libressl)}
