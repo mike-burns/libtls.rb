@@ -6,7 +6,9 @@ class Client
   attr_reader :ctx
 
   def initialize(configure:, &block)
-    LibTLS.init
+    if LibTLS::Raw.tls_init < 0
+      raise "tls_init failed"
+    end
 
     @config = Config.new(configure)
 
