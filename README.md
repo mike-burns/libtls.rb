@@ -183,6 +183,11 @@ end
 The underlying `struct tls *` object is exposed through the `#ctx` method; it
 can be passed to any `LibTLS::Raw` method, for example.
 
+These methods can raise instances of `LibTLS::UnknownCError` and
+`LibTLS::CError`. Instances of the first are raised when we do not have access
+to the underlying issue, and instances of the second attempt to include the
+error string from libtls.
+
 ## Contributing
 
 1. Fork it ( https://github.com/mike-burns/libtls.rb/fork )

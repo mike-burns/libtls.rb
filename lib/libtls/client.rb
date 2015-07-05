@@ -7,17 +7,17 @@ class Client
 
   def initialize(configure:, &block)
     if LibTLS::Raw.tls_init < 0
-      raise "tls_init failed"
+      raise LibTLS::UnknownCError, "tls_init"
     end
 
     @config = Config.new(configure)
 
     if (@ctx = LibTLS::Raw.tls_client) == nil
-      raise "tls_client failed"
+      raise LibTLS::UnknownCError, "tls_client"
     end
 
     if LibTLS::Raw::tls_configure(ctx, @config.as_raw) < 0
-      raise "tls_configure: #{LibTLS::Raw.tls_error(ctx)}"
+      raise LibTLS::CError, "tls_configure: #{LibTLS::Raw.tls_error(ctx)}"
     end
 
     if block
@@ -34,7 +34,7 @@ class Client
 
     begin
       if LibTLS::Raw.tls_connect(ctx, hostname, port.to_s) < 0
-        raise "tls_connect: #{LibTLS::Raw.tls_error(ctx)}"
+        raise LibTLS::CError, "tls_connect: #{LibTLS::Raw.tls_error(ctx)}"
       end
 
       opened_client = OpenedClient.new(ctx)
@@ -63,7 +63,7 @@ class OpenedClient
 
   def close
     if LibTLS::Raw.tls_close(ctx) < 0
-      raise "tls_close: #{LibTLS::Raw.tls_error(ctx)}"
+      raise LibTLS::CError, "tls_close: #{LibTLS::Raw.tls_error(ctx)}"
     end
   end
 
@@ -73,7 +73,7 @@ class OpenedClient
         str_ptr.put_string(0, str)
 
         if LibTLS::Raw.tls_write(ctx, str_ptr, str.length, outlen) < 0
-          raise "tls_write: #{LibTLS::Raw.tls_error(ctx)}"
+          raise LibTLS::CError, "tls_write: #{LibTLS::Raw.tls_error(ctx)}"
         end
       end
     end
@@ -86,7 +86,7 @@ class OpenedClient
       FFI::MemoryPointer.new(:uchar, READ_LEN, true) do |buf|
         loop do
           if LibTLS::Raw.tls_read(ctx, buf, READ_LEN, outlen) < 0
-            raise "tls_read: #{LibTLS::Raw.tls_error(ctx)}"
+            raise LibTLS::CError, "tls_read: #{LibTLS::Raw.tls_error(ctx)}"
           end
 
           str += buf.get_string(0, outlen.get_int(0))

@@ -1,5 +1,6 @@
 require 'libtls/config'
 require 'libtls/raw'
+require 'libtls/exn'
 
 module LibTLS
 class Server
@@ -7,17 +8,17 @@ class Server
 
   def initialize(configure:, &block)
     if LibTLS::Raw.tls_init < 0
-      raise "tls_init failed"
+      raise LibTLS::UnknownCError, "tls_init"
     end
 
     @config = Config.new(configure)
 
     if (@ctx = LibTLS::Raw.tls_server) == nil
-      raise "tls_server failed"
+      raise LibTLS::UnknownCError, "tls_server"
     end
 
     if LibTLS::Raw::tls_configure(ctx, @config.as_raw) < 0
-      raise "tls_configure: #{LibTLS::Raw.tls_error(ctx)}"
+      raise LibTLS::CError, "tls_configure: #{LibTLS::Raw.tls_error(ctx)}"
     end
 
     if block
@@ -33,7 +34,7 @@ class Server
     cctx_ptr = FFI::MemoryPointer.new(:pointer)
 
     if tls_accept(cctx_ptr, client_socket) == -1
-      raise "tls_accept_socket: #{LibTLS::Raw.tls_error(ctx)}"
+      raise LibTLS::CError, "tls_accept_socket: #{LibTLS::Raw.tls_error(ctx)}"
     end
 
     cctx = cctx_ptr.read_pointer

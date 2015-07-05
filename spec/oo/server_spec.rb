@@ -57,7 +57,7 @@ describe 'a libtls server' do
           c.write(str)
           c.read
         end
-      rescue RuntimeError ### TODO: change this when we support better exns
+      rescue LibTLS::CError
       end
     end
 
